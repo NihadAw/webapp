@@ -3,10 +3,10 @@
 Haifa Uni FED course project (2015).
 
 
-## Build
+#### Build
 
-Run `grunt` for building.
+Run `npm install && bower install && grunt` for building.
 
-## development
+#### Development
 
-Run `grunt serve` for preview.
+Run `npm install && bower install && grunt serve` for preview.
