@@ -1,7 +1,7 @@
 <div class="tab">
 
   <div class="row ">
-
+    <!-- left links dropdown -->
     <div class="col-md-3">
       <div class="dropdown inline-block"  ng-hide="showMenu">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -15,6 +15,7 @@
         </ul>
       </div>
 
+      <!-- loading spinner -->
       <div class="loading inline-block" ng-hide="loaded">
         <a href="" class="btn"><i class="glyphicon glyphicon-refresh"></i></a>
       </div>
@@ -22,11 +23,9 @@
 
     </div>
 
-
+    <!-- right icons -->
     <div class="col-md-2 col-md-push-7 ">
       <div class="pull-right" ng-click="showMenu = !showMenu">
-
-
           <a href="{{selectedLink.url}}" class="btn" target="_blank" ng-show="selectedLink.url">
             <i class="glyphicon glyphicon-resize-full"></i></a>
           <a href="" class="btn"><i class="glyphicon glyphicon-cog"></i></a>
@@ -35,9 +34,10 @@
 
   </div>
 
+  <!-- sitesForm -->
   <div class="row">
-      <div class="col-md-6 col-md-push-6"  ng-show="showMenu">
-        <form name="sitesForm" ng-submit="submitForm()" novalidate>
+      <div class="col-md-8 col-md-push-4"  ng-show="showMenu">
+        <form name="sitesForm" ng-submit="submitForm()" class="sitesList-form" novalidate>
           <ul class="list-group" >
             <li ng-repeat="site in sitesList" class="list-group-item">
                 <span class="bold"> Report {{$index+1}}: </span>
@@ -55,6 +55,7 @@
             <li class="list-group-item">
                <a href=""  ng-click="showMenu = !showMenu">Cancel</a>
                <button type="submit" class="btn btn-primary" ng-disabled="sitesForm.$invalid">Save</button>
+               <small class="text-muted pull-right">* Please try to avoid Mixed Content ( http || https )</small>
             </li>
           </ul>
 
@@ -62,11 +63,12 @@
       </div>
   </div>
 
+
+  <!-- iframe section -->
   <div class="row">
     <div class="col-md-12" >
 
       <div class="embed-responsive embed-responsive-600h">
-
         <iframe src="{{iframesrc}}"  class="embed-responsive-item"  iframe-onload="iframeLoad()"></iframe>
       </div>
     </div>

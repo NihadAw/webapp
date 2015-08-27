@@ -1,49 +1,24 @@
 'use strict';
 
-angular
-  .module('webApp')
-  .directive('myFrame',function () {
-    return {
-        restrict: 'E',
-        require: '?ngModel',
-        replace: true,
-      //  transclude: true,
-        scope: {
-            sitesList: "=",
-        },
-      //  template: '<iframe src="" height="100%" width="100%" frameborder="0"></iframe>',
-        templateUrl: 'views/iframe.html',
-        compile: function (element, attrs, transclude) {
-            console.log('element',element);
-            console.log('element',element.children('iframe'));
-            console.log(transclude);
-          //  element[0].outerHTML = element[0].outerHTML.replace('%url%',attrs.iframeSrc);
-            element.children('iframe').attr('src', attrs.iframeSrc);
-
-            console.log(element);
-            element.children('.dropdown').on('click',function (e) {
-                e.preventDefault();
-                console.log(e.target.href);
-                if (e.target.href !== undefined){
-                  element.children('iframe').attr('src', e.target.href);
-                }
-            });
-
-        },
-        link: function (scope) {
-              console.log('scope: ', scope);
-              scope.$watch('sitesList', function(newValue, oldValue) {
-               if (newValue){
-                   console.log("I see a data change!" ,newValue);
-                   console.log("I see a data change!",oldValue );
-              }
-           }, true);
-        }
-    };
-})
+/**
+* @ngdoc directive
+* @name httpPrefix
+* @name iframeOnload
+* #httpPrefix:
+* used to autoprefix and validate url inputs schema [ http:// and https:// ]
+*
+* #iframeOnload
+* used to a hook a function on iframe load as an iframe attr
+**/
 
 
-// prefix http
+angular.module('webApp')
+
+/**
+* @ngdoc directive
+* #httpPrefix
+* used to autoprefix and validate url inputs schema [ http:// and https:// ]
+**/
 .directive('httpPrefix', function() {
     return {
         restrict: 'A',
@@ -66,6 +41,11 @@ angular
     };
 })
 
+/**
+* @ngdoc directive
+* #iframeOnload
+* used to a hook a function on iframe load as an iframe attr
+**/
 .directive('iframeOnload', [function(){
 return {
     scope: {

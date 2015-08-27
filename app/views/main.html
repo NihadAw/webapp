@@ -1,3 +1,4 @@
+<!-- notification Section -->
 <section class="row notification">
     <div class="col-md-12">
         <p ng-if="notification"> <i class="glyphicon glyphicon-info-sign"></i>
@@ -9,6 +10,7 @@
 
 <hr>
 
+<!-- quickActions Section -->
 <section class="row links">
   <div ng-repeat="action in quickActions"  class="dropdown col-md-4 text-center">
     <div class="dropdown">
@@ -26,9 +28,7 @@
 </section>
 <hr>
 
-
-<br>
-
+<!-- tabs section-->
 <section class="tabs">
   <div class="row">
     <div class="col-md-12">
@@ -58,11 +58,11 @@
     </div>
   </div>
 
+  <!-- tab ui-view -->
   <div class="row">
     <div class="col-md-12">
       <div ui-view></div>
     </div>
-
   </div>
 
 </section>

@@ -19,30 +19,14 @@ body {
     border-radius: 0px;
 }
 
-/* Custom page header */
-.header {
-  margin-bottom: 10px;
 
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-}
-
-
-
-.dropdown{
-  display: inline-block;
-}
-
-.embed-responsive-600h{
-  min-height: 600px;
-}
-
-.dropdown-toggle{
-  min-width: 200px;
+.sitesList-form{
+  .bold{
+    font-weight: 700;
+  }
+  label{
+    margin-left: 35px;
+  }
 }
 
 .nav-tabs {
@@ -53,9 +37,21 @@ body {
   margin-top: 15px;
 }
 
-.ng-pending{
-  outline: 1px solid orange;
+.dropdown{
+  display: inline-block;
 }
+
+.dropdown-toggle{
+  min-width: 200px;
+}
+
+.embed-responsive-600h{
+  min-height: 600px;
+}
+
+
+
+
 
 .has-error{
   outline: 1px solid red;
@@ -69,55 +65,32 @@ body {
    outline: 1px solid red;
 
 }
-// .tab{
-//   iframe{
-//     min-height: 600px;
-//   }
-// }
 
 .loading i{
   animation:spin 4s linear infinite;
 }
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
+// auto-prefixer is used  no need for prefixing
+@keyframes spin {
+   100% {
+     transform:rotate(360deg);
+   }
+}
 
 .ng-hide {
   opacity:0;
 }
 
 
-.ng-hide-add, .ng-hide-remove {
-  /* this needs to be here to make it visible during the animation
-     since the .ng-hide class is already on the element rendering
-     it as hidden. */
-  display:block!important;
-}
-
 .inline-block{
   display: inline-block;
 }
-
-.ng-hide-animation{
-
-  animation:fadeout 0.3s ease;
-
-}
-
-
-
 
 
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
+    
 
 
-
-}
-
-.active{
-  color:red;
 }

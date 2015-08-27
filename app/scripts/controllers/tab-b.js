@@ -2,46 +2,48 @@
 
 /**
  * @ngdoc function
- * @name webApp.controller:MainCtrl
+ * @name webApp.controller:TabBCtrl
  * @description
- * # MainCtrl
- * Controller of the webApp
+ * # TabBCtrl
+ * used to display the multiple site list tabs (tab 1 and 3)
+ *
  */
 angular.module('webApp')
   .controller('TabBCtrl', function ($stateParams, $scope , $log ,  $sce, dataService) {
     var id = $stateParams.id;
 
-    $scope.init = function(){
-      $log.info('TabBCtrl init');
+
+    var init = function(){
+      $log.debug('TabBCtrl init');
       $scope.selectedLink = { name : 'Links',
                               url :'',
                             };
       $scope.showMenu = false;
       $scope.loaded = false;
+
+      // get the data from the dataService
       dataService.fetchData().then(function(){
 
           $scope.sitesList =  dataService.getTabData(id);
-
           if ($scope.sitesList[0].name === undefined || $scope.sitesList[0].name ===''){
               $scope.showMenu = true;
           }else{
               $scope.setSrc(0);
           }
-
       });
-
     };
 
-    $scope.init();
+    init();
 
+
+    // handles the sitesForm submit
     $scope.submitForm = function() {
 
-       // check to make sure the form is valid
+       // check the form is validity
        if ($scope.sitesForm.$valid) {
-           $log.info('Form is VALID');
-           console.log('$scope.sitesList',   $scope.sitesList);
-
+           $log.debug('Form is VALID' , $scope.sitesList );
            dataService.setTabData(id,$scope.sitesList);
+
        }else{
            $log.error('Form is not VALID');
        }
@@ -50,17 +52,18 @@ angular.module('webApp')
 
     };
 
+    // sets the iframe src
     $scope.setSrc = function(index){
       $scope.loaded = false;
-      console.log('set src');
       $scope.iframesrc = $sce.trustAsResourceUrl ($scope.sitesList[index].url);
       $scope.selectedLink.name = $scope.sitesList[index].name;
       $scope.selectedLink.url = $scope.sitesList[index].url;
 
     };
 
+    // triggered on the iframe event
     $scope.iframeLoad = function(){
-      $log.debug('iframe loaded..');
+      $log.debug('iframe loaded...');
       $scope.$apply(function () {
           $scope.loaded = true;
         });

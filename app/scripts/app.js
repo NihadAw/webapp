@@ -5,13 +5,12 @@
  * @name webApp
  * @description
  * # webApp
- *
+ * Haifa Uni FED course project (2015).
+ * Nihad Aw
  * Main module of the application.
  */
 angular
   .module('webApp', [
-    'ngAnimate',
-    'ngCookies',
     'ui.router',
     'ngStorage',
   ])
@@ -20,7 +19,10 @@ angular
   console.log('webApp run');
 })
 
-.config(function ($stateProvider , $urlRouterProvider ) {
+.config(function ($stateProvider , $urlRouterProvider , $logProvider ) {
+
+    $logProvider.debugEnabled(false);// debug flag
+
     $stateProvider
     .state('app', {
              url: "/",
@@ -34,13 +36,11 @@ angular
        })
     .state('app.tabb', {
              url: "tab-b/:id",
-             //cache: true,
              templateUrl: "views/tab_b.html",
              controller: 'TabBCtrl',
              persist: true
 
-
        });
 
-    $urlRouterProvider.otherwise('tabb/1');
+    $urlRouterProvider.otherwise('tab-b/1');
   });

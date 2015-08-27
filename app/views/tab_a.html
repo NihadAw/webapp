@@ -1,9 +1,20 @@
 <div class="tab">
+  
+  <div class="row">
+      <div class="col-md-1">
+        <div class="loading inline-block" ng-hide="loaded">
+          <a href="" class="btn"><i class="glyphicon glyphicon-refresh"></i></a>
+        </div>
+
+      </div>
+      <div class="col-md-1 col-md-push-10">
+        <a href="{{url}}" class="btn pull-right" target="_blank" ng-show="url">
+          <i class="glyphicon glyphicon-resize-full"></i></a>
+      </div>
+
+  </div>
 
   <div class="embed-responsive embed-responsive-600h">
-    <div class="loading inline-block" ng-hide="loaded">
-      <a href="" class="btn"><i class="glyphicon glyphicon-refresh"></i></a>
-    </div>
     <iframe src="{{url}}" class="embed-responsive-item"  iframe-onload="iframeLoad()"></iframe>
   </div>
 

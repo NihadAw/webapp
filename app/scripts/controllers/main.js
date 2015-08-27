@@ -5,19 +5,22 @@
  * @name webApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the webApp
+ * Main Controller of the webApp
+ *
+ * parent state of the tabs
  */
 angular.module('webApp')
   .controller('MainCtrl', function ($scope, dataService , $log ,$location) {
 
-      $log.info('MainCtrl');
+      $log.debug('MainCtrl');
       $scope.notification = "hello World!";
-      
+
+      // get the notification from the dataService
       dataService.getNotification().then(function(data){
-        //  $log.debug('Data: ' , data);
           $scope.notification = data;
       });
 
+      // get the Quick Actions from the dataService
       dataService.getQuickActions().then(function(data){
           $log.debug('getQuickActions: ' , data);
           $scope.quickActions = data;

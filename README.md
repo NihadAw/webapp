@@ -1,12 +1,12 @@
 # webapp
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+Haifa Uni FED course project (2015).
 
-## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
+## Build
 
-## Testing
+Run `grunt` for building.
 
-Running `grunt test` will run the unit tests with karma.
+## development
+
+Run `grunt serve` for preview.
