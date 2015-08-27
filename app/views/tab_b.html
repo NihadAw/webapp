@@ -39,6 +39,7 @@
       <div class="col-md-8 col-md-push-4"  ng-show="showMenu">
         <form name="sitesForm" ng-submit="submitForm()" class="sitesList-form" novalidate>
           <ul class="list-group" >
+            <!-- form fields -->
             <li ng-repeat="site in sitesList" class="list-group-item">
                 <span class="bold"> Report {{$index+1}}: </span>
                 <label> Name</label>
@@ -50,12 +51,14 @@
                           ng-model="site.url"
                           ng-required="sitesList[$index].name"
                           http-prefix >
-
             </li>
+            <!-- form actions -->
             <li class="list-group-item">
-               <a href=""  ng-click="showMenu = !showMenu">Cancel</a>
-               <button type="submit" class="btn btn-primary" ng-disabled="sitesForm.$invalid">Save</button>
-               <small class="text-muted pull-right">* Please try to avoid Mixed Content ( http || https )</small>
+                <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" class="btn btn-default" ng-click="showMenu = !showMenu">Cancel</button>
+                  <button type="submit" class="btn btn-default" ng-disabled="sitesForm.$invalid">Save</button>
+                </div>
+               <small class="text-muted pull-right"><i class="glyphicon glyphicon-info-sign"></i> Please try to avoid Mixed Content ( http || https )</small>
             </li>
           </ul>
 

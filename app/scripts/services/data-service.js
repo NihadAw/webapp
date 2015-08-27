@@ -12,6 +12,7 @@
 
 angular.module('webApp')
 .service('dataService', function($http, $log, $q , $localStorage){
+    var confFileUrl = '/data/config.json';
     var dataService = {};
 
     var init = function(){
@@ -30,7 +31,7 @@ angular.module('webApp')
     // fetch the  data from the json file
     dataService.fetchData = function(){
         var deferred = $q.defer();
-        $http.get('/data/config.json', {cache: true})
+        $http.get( confFileUrl , {cache: true})
           .success(function(data) {
               dataService.data = data;
               $log.debug('dataService fetchData():' , data);
@@ -105,6 +106,6 @@ angular.module('webApp')
 
     };
 
-    
+
     return dataService;
 });
