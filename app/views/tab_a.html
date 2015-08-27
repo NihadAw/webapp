@@ -1,11 +1,8 @@
 <div class="tab">
-  <!-- <h1>tab 1</h1>
-  <h6>{{url}}</h6> -->
-
 
   <div class="embed-responsive embed-responsive-600h">
-    <div class="loading text-center" ng-hide="loaded">
-      <h3>Loading...</h4>
+    <div class="loading inline-block" ng-hide="loaded">
+      <a href="" class="btn"><i class="glyphicon glyphicon-refresh"></i></a>
     </div>
     <iframe src="{{url}}" class="embed-responsive-item"  iframe-onload="iframeLoad()"></iframe>
   </div>

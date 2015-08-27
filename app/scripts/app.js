@@ -27,31 +27,20 @@ angular
              templateUrl: "views/main.html",
              controller: 'MainCtrl'
        })
-    .state('about', {
-             url: "/about",
-             templateUrl: "views/about.html",
-             controller: 'AboutCtrl',
-             controllerAs: 'about'
-       })
-    .state('app.tab1', {
-             url: "tab1",
+    .state('app.taba', {
+             url: "tab-a/:id",
              templateUrl: "views/tab_a.html",
-             controller: 'Tab1Ctrl',
+             controller: 'TabACtrl',
        })
-    .state('app.tab2', {
-             url: "tab2",
+    .state('app.tabb', {
+             url: "tab-b/:id",
              //cache: true,
              templateUrl: "views/tab_b.html",
-             controller: 'Tab2Ctrl',
+             controller: 'TabBCtrl',
              persist: true
 
 
-       })
-    .state('about.hello', {
-             url: "/contact",
-             templateUrl: "views/hello.html",
-             controller: 'HelloCtrl',
        });
 
-    $urlRouterProvider.otherwise('tab1');
+    $urlRouterProvider.otherwise('tabb/1');
   });

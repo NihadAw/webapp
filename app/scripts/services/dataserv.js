@@ -6,13 +6,11 @@ angular.module('webApp')
 
     var init = function(){
       $log.debug('dataService init');
-      // check if we have something in localStorage
+      // check if we have something in localStorage and init it
       if ( $localStorage.webapp  === undefined ){
-          $localStorage.webapp ={
-            tabsList: {}
-          };
-      }else {
-        //  dataService.data.tabsList = $localStorage.webapp.tabsList;
+            $localStorage.webapp ={
+              tabsList: {}
+            };
       }
 
     };
@@ -74,7 +72,7 @@ angular.module('webApp')
 
     dataService.getTabData = function (id) {
       $log.debug('dataService getTabData:' , id);
-      --id; // we sttart the tabs from 1 not zero
+      --id; // we start the tabs (routes) from 1 not zero
       if (dataService.data.tabsList[id].siteList !== undefined){
           return dataService.data.tabsList[id].siteList;
       }else{

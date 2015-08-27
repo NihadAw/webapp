@@ -8,13 +8,21 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-  .controller('Tab1Ctrl', function ($scope ,  $sce ) {
-    $scope.url = "http://www.ziqaq.ps";
+  .controller('TabACtrl', function ($stateParams , $scope ,  $sce ) {
+
+    // load the url (hardcoded!!)
+    // TODO: load the urls thru the dataService
+    if ( $stateParams.id === '2'){
+        $scope.url = "http://www.haaretz.co.il/";
+    }else{
+        $scope.url = "http://www.ynet.co.il/";
+    }
+
     $scope.loaded = false;
     $scope.url = $sce.trustAsResourceUrl ($scope.url);
 
+
     $scope.iframeLoad = function(){
-      console.log('frame');
       $scope.loaded = true;
     };
 

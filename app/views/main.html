@@ -3,8 +3,11 @@
         <p ng-if="notification"> <i class="glyphicon glyphicon-info-sign"></i>
            {{ notification }}
         </p>
+
     </div>
 </section>
+
+<hr>
 
 <section class="row links">
   <div ng-repeat="action in quickActions"  class="dropdown col-md-4 text-center">
@@ -30,22 +33,22 @@
   <div class="row">
     <div class="col-md-12">
       <ul class="nav nav-tabs nav-justified">
-        <li ui-sref="app.tab1" ng-class="{ active: isActive('/tab1') }">
+        <li ui-sref="app.tabb({id:1})"  ng-class="{ active: isActive('/tab-b/1') }">
             <a>
               <i class="glyphicon glyphicon-share "></i> Quick Reports
             </a>
         </li>
-        <li ui-sref="app.tab2" ng-class="{ active: isActive('/tab2') }">
-          <a  class="">
+        <li ui-sref="app.taba({id:2})"ng-class="{ active: isActive('/tab-a/2') }">
+          <a>
             <i class="glyphicon glyphicon-star"></i> Folders
           </a>
         </li>
-        <li ui-sref="app.tab3" ng-class="{ active: isActive('/tab3') }">
-          <a  >
+        <li ui-sref="app.tabb({id:3})" ng-class="{ active: isActive('/tab-b/3') }">
+          <a>
             <i class="glyphicon glyphicon-folder-open"></i> My Team Folders
           </a>
         </li>
-        <li  ui-sref="app.tab4" ng-class="{ active: isActive('/tab4') }">
+        <li  ui-sref="app.taba({id:4})" ng-class="{ active: isActive('/tab-a/4') }">
           <a>
               <i class="glyphicon glyphicon-list-alt"></i> Public Folders
             </a>
