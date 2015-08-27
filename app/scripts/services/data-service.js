@@ -12,7 +12,7 @@
 
 angular.module('webApp')
 .service('dataService', function($http, $log, $q , $localStorage){
-    var confFileUrl = '/data/config.json';
+    var confFileUrl = 'data/config.json';
     var dataService = {};
 
     var init = function(){
