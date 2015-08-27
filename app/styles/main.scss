@@ -14,78 +14,110 @@ body {
   padding: 0;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+
+.navbar {
+    border-radius: 0px;
 }
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-  }
 }
 
 /* Custom page footer */
 .footer {
   padding-top: 19px;
   color: #777;
-  border-top: 1px solid #e5e5e5;
 }
 
-.container-narrow > hr {
-  margin: 30px 0;
+
+
+.dropdown{
+  display: inline-block;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
+.embed-responsive-600h{
+  min-height: 600px;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-
-  p + h4 {
-    margin-top: 28px;
-  }
+.dropdown-toggle{
+  min-width: 200px;
 }
+
+.nav-tabs {
+  cursor: pointer;
+}
+
+.tab{
+  margin-top: 15px;
+}
+
+.ng-pending{
+  outline: 1px solid orange;
+}
+
+.has-error{
+  outline: 1px solid red;
+}
+
+.ng-invalid-required{
+   outline: 1px solid red;
+
+}
+.ng-invalid-url-remove{
+   outline: 1px solid red;
+
+}
+// .tab{
+//   iframe{
+//     min-height: 600px;
+//   }
+// }
+
+.loading i{
+  animation:spin 4s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+.ng-hide {
+  opacity:0;
+}
+
+
+.ng-hide-add, .ng-hide-remove {
+  /* this needs to be here to make it visible during the animation
+     since the .ng-hide class is already on the element rendering
+     it as hidden. */
+  display:block!important;
+}
+
+.inline-block{
+  display: inline-block;
+}
+
+.ng-hide-animation{
+
+  animation:fadeout 0.3s ease;
+
+}
+
+
+
+
+
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-  //  max-width: 730px;
-  }
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+
+
+}
+
+.active{
+  color:red;
 }

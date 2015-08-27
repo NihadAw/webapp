@@ -14,35 +14,31 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="webappApp">
+  <body ng-app="webApp">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
+    <!-- application content  -->
+    <nav class="header">
+      <div class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
 
+          <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-
-            <a class="navbar-brand" href="#/">webapp</a>
+            <div itemscope itemtype="http://schema.org/brand" class="inner">
+              <a class="navbar-brand" href="#/">
+                <img itemprop="logo" src="/images/netcraft-logo.png" alt="wepapp logo" title="weapp logo"/>
+              </a>
+            </div>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ui-sref="about.contact">Contact</a></li>
-              <li><a ui-sref="about.hello">Hello</a></li>
-            </ul>
             <div class="col-sm-3 col-md-3 pull-right">
               <form class="navbar-form" role="search">
                 <div class="input-group">
@@ -54,23 +50,24 @@
               </form>
             </div>
           </div>
+
         </div>
       </div>
-    </div>
+    </nav>
 
     <div class="container">
       <div ui-view></div>
     </div>
 
-    <div class="footer">
+    <footer class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+
       </div>
-    </div>
+    </footer>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
+     <!-- <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
@@ -78,7 +75,7 @@
 
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
-    </script>
+    </script> -->
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -88,6 +85,7 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -95,7 +93,11 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/tab1.js"></script>
+        <script src="scripts/controllers/tab2.js"></script>
         <script src="scripts/controllers/contact.js"></script>
+        <script src="scripts/services/dataserv.js"></script>
+        <script src="scripts/directives.js"></script>
         <!-- endbuild -->
 </body>
 </html>

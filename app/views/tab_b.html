@@ -1,0 +1,76 @@
+<div class="tab">
+
+  <div class="row ">
+
+    <div class="col-md-3">
+      <div class="dropdown inline-block"  ng-hide="showMenu">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          {{selectedLink.name}}
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li ng-repeat="item in sitesList" ng-if="item.name">
+            <a href="" ng-click="setSrc($index)"> {{item.name}}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="loading inline-block" ng-hide="loaded">
+        <a href="" class="btn"><i class="glyphicon glyphicon-cog"></i></a>
+      </div>
+
+
+    </div>
+
+
+    <div class="col-md-2 col-md-push-7 ">
+      <div class="pull-right" ng-click="showMenu = !showMenu">
+
+
+          <a href="{{selectedLink.url}}" class="btn" target="_blank" ng-show="selectedLink.url">
+            <i class="glyphicon glyphicon-resize-full"></i></a>
+          <a href="" class="btn"><i class="glyphicon glyphicon-cog"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+      <div class="col-md-6 col-md-push-6"  ng-show="showMenu">
+        <form name="sitesForm" ng-submit="submitForm()" novalidate>
+          <ul class="list-group" >
+            <li ng-repeat="site in sitesList" class="list-group-item">
+                <span class="bold"> Report {{$index+1}}: </span>
+                <label> Name</label>
+                <input type="text" name="name" placeholder="Site Name"
+                            ng-model="site.name"
+                            ng-required="sitesList[$index].url">
+                <label> url </label>
+                <input type="url"  name="url" placeholder="Site Url"
+                          ng-model="site.url"
+                          ng-required="sitesList[$index].name"
+                          http-prefix >
+
+            </li>
+            <li class="list-group-item">
+               <a href=""  ng-click="showMenu = !showMenu">Cancel</a>
+               <button type="submit" class="btn btn-primary" ng-disabled="sitesForm.$invalid">Save</button>
+            </li>
+          </ul>
+
+        </form>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12" >
+
+      <div class="embed-responsive embed-responsive-600h">
+
+        <iframe src="{{iframesrc}}"  class="embed-responsive-item"  iframe-onload="iframeLoad()"></iframe>
+      </div>
+    </div>
+  </div>
+
+
+</div>

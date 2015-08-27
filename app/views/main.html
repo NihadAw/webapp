@@ -1,23 +1,65 @@
-<div class="jumbotron">
-  <h1>Main</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<section class="row notification">
+    <div class="col-md-12">
+        <p ng-if="notification"> <i class="glyphicon glyphicon-info-sign"></i>
+           {{ notification }}
+        </p>
+    </div>
+</section>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<section class="row links">
+  <div ng-repeat="action in quickActions"  class="dropdown col-md-4 text-center">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu{{$index}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          {{action.actionsLabel}}
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li ng-repeat="item in action.actions">
+            <a href="{{item.url}}" target="_blank"> {{item.label}}</a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</section>
+<hr>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+<br>
+
+<section class="tabs">
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="nav nav-tabs nav-justified">
+        <li ui-sref="app.tab1" ng-class="{ active: isActive('/tab1') }">
+            <a>
+              <i class="glyphicon glyphicon-share "></i> Quick Reports
+            </a>
+        </li>
+        <li ui-sref="app.tab2" ng-class="{ active: isActive('/tab2') }">
+          <a  class="">
+            <i class="glyphicon glyphicon-star"></i> Folders
+          </a>
+        </li>
+        <li ui-sref="app.tab3" ng-class="{ active: isActive('/tab3') }">
+          <a  >
+            <i class="glyphicon glyphicon-folder-open"></i> My Team Folders
+          </a>
+        </li>
+        <li  ui-sref="app.tab4" ng-class="{ active: isActive('/tab4') }">
+          <a>
+              <i class="glyphicon glyphicon-list-alt"></i> Public Folders
+            </a>
+          </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div ui-view></div>
+    </div>
+
+  </div>
+
+</section>

@@ -2,26 +2,30 @@
 
 /**
  * @ngdoc overview
- * @name webappApp
+ * @name webApp
  * @description
- * # webappApp
+ * # webApp
  *
  * Main module of the application.
  */
 angular
-  .module('webappApp', [
+  .module('webApp', [
     'ngAnimate',
     'ngCookies',
-    'ui.router'
+    'ui.router',
+    'ngStorage',
   ])
+
+.run(function(){
+  console.log('webApp run');
+})
 
 .config(function ($stateProvider , $urlRouterProvider ) {
     $stateProvider
     .state('app', {
              url: "/",
-            // abstract: true,
              templateUrl: "views/main.html",
-             controller: 'AppCtrl'
+             controller: 'MainCtrl'
        })
     .state('about', {
              url: "/about",
@@ -29,10 +33,19 @@ angular
              controller: 'AboutCtrl',
              controllerAs: 'about'
        })
-    .state('about.contact', {
-             url: "/contact",
-             templateUrl: "views/contact.html",
-             controller: 'ContactCtrl',
+    .state('app.tab1', {
+             url: "tab1",
+             templateUrl: "views/tab_a.html",
+             controller: 'Tab1Ctrl',
+       })
+    .state('app.tab2', {
+             url: "tab2",
+             //cache: true,
+             templateUrl: "views/tab_b.html",
+             controller: 'Tab2Ctrl',
+             persist: true
+
+
        })
     .state('about.hello', {
              url: "/contact",
@@ -40,5 +53,5 @@ angular
              controller: 'HelloCtrl',
        });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('tab1');
   });
