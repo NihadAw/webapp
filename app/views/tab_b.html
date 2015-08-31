@@ -42,15 +42,21 @@
             <!-- form fields -->
             <li ng-repeat="site in sitesList" class="list-group-item">
                 <span class="bold"> Report {{$index+1}}: </span>
-                <label> Name</label>
-                <input type="text" name="name" placeholder="Site Name"
-                            ng-model="site.name"
-                            ng-required="sitesList[$index].url">
-                <label> url </label>
-                <input type="url"  name="url" placeholder="Site Url"
+                  <label for="name-{{$index}}"> Name
+                    <input type="text" name="name{{$index}}" id="name-{{$index}}"  placeholder="Site Name"
+                              ng-model="site.name"
+                              ng-required="sitesList[$index].url"
+                              aria-describedby="n-error-{{$index}}">
+                    <div id="n-error-{{$index}}" class="help-inline error text-right" ng-show="sitesForm.name{{$index}}.$invalid && sitesForm.name{{$index}}.$dirty ">Please fill in a valid name</div>
+                  </label>
+                <label for="url-{{$index}}"> url
+                    <input type="url"  name="url{{$index}}" id="url-{{$index}}" placeholder="Site Url"
                           ng-model="site.url"
                           ng-required="sitesList[$index].name"
-                          http-prefix >
+                          http-prefix
+                          aria-describedby="m-error-{{$index}}">
+                    <div id="m-error-{{$index}}" class="help-inline error text-right" ng-show="sitesForm.url{{$index}}.$invalid && sitesForm.url{{$index}}.$dirty ">Please fill in a valid Url</div>
+                </label>
             </li>
             <!-- form actions -->
             <li class="list-group-item">

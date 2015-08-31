@@ -52,6 +52,7 @@ angular.module('webApp')
 
     };
 
+    
     // sets the iframe src
     $scope.setSrc = function(index){
       $scope.loaded = false;
@@ -61,7 +62,7 @@ angular.module('webApp')
 
     };
 
-    // triggered on the iframe event
+    // triggered on the iframe onLoad event
     $scope.iframeLoad = function(){
       $log.debug('iframe loaded...');
       $scope.$apply(function () {

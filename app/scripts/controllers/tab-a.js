@@ -22,7 +22,7 @@ angular.module('webApp')
     $scope.loaded = false;
     $scope.url = $sce.trustAsResourceUrl ($scope.url);
 
-    // on iframe load
+    // triggred on iframe onLoad
     $scope.iframeLoad = function(){
       $scope.$apply(function () {
           $scope.loaded = true;
